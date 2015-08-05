@@ -1,0 +1,142 @@
+*{/*here we make everything in the centre of the page */
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+body{
+	text-align:center;
+	font-family:arial;
+	font-size:12px;
+	color:#303030;
+}
+header,nav,section,aside,footer{
+	display:block;
+}
+img{
+	border:none;
+	/* because in some browsers image comes with border (like internet explore) */
+}
+h2{ /* dark Gray titles */
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h3{ /*for titles */
+	margin-bottom:15px;
+	font-size:22px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+	/* text-shadow has 4 parameters  -  for example here is : 1px go right- 1px go down - 
+	3px blur the shadow - and last one is colour */
+}
+h4{ 
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+h5{ /*address prompt */
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h6{ /*address for shipping info*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+table{
+	text-align:center;
+	width:100%
+}
+th{ /*table heading */
+	color:#888888;
+	font-weight:normal;
+	text-decoration:underline;
+}
+td{ /* table data */
+	padding:3px 10px;
+	/* we just give the data in the table some space around - (up and down 3px and left and right 10px ) */
+}
+a:link{
+	color:#006699;
+	text-decoration:none;
+}
+a:visited{ /* visited and links I made them as the same */
+	color:#006699;
+	text-decoration:none;
+}
+a:hover{ /* hover and active I made them same */
+	color:#cc6600;
+	text-decoration:underline;
+}
+a:active{
+	color:#cc6600;
+	text-decoration:underline;
+}
+.dates{
+	color:#cc6600;
+	font-weight:bold;
+}
+.offers{
+	color:#404040;
+	font-weight:bold;
+}
+.usernames{
+	color:#404040;
+	font-weight:900;
+}
+.subtitles{
+	color:#707070;
+}
+#wrapper{ 
+	width:1000px;
+	margin:15px auto 0px;
+	text-align:left;
+}
+#main_header{/*space for logo and top links */
+}
+#rightAlign{
+		float:right;
+		text-align:right;
+}
+#top_search{
+	margin-top:10px;
+	padding:5px 0px 5px 10px;
+	display:block;
+	border-radius:7px;           /* as css3 is not adoptable with all browsers. : */
+	-moz-border-radius:7px;      /* in fire fox we add  ( -moz- ) */
+	-webkit-border-radius:7px;   /* in safari and google chrom fox we add  ( -webkit)  */
+	background-color:#006699;
+}
+#main_aside{
+	width:208px;
+	margin-top:10px;
+	margin-right:10px;
+	border-width:1px;
+	float:left;
+	/* 208px + 10px + 1px+ 1px = 220   1000 -220 = 780 */
+}
+#main_section{
+	margin-top:10px;
+	margin-bottom:20px;
+	float:left;
+	width:780px;
+	/* 780px came from the 1000-220 from above */
+}
+#main_footer{
+	padding-top:30px;
+	clear:both;  /* clear:both makes the element drop below any floated elements that precede it in the document.*/
+	
+}
+.searchBox{
+	padding:2px;
+	border:1px solid #b9bdc1;
+	color:#505050;
+}
+.button{/* here I need to fill it */
+	
+}
