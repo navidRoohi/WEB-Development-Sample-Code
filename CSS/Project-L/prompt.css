@@ -1,0 +1,18 @@
+#outer{
+        width:100%;
+        text-align:center;
+}
+#inner{
+        display:inline-block;
+        border: 1px solid gray;
+        width:600px;
+        padding:10px;
+        margin:10px auto;
+        border-radius:7px;
+        -mox-border-radius:7px;
+        -webkit-border-radius:7px;
+        
+        box-shadow:5px 5px 15px #a0a0a0;
+        -moz-box-shadow:5px 5px 15px #a0a0a0;
+        -webkit-box-shadow:5px 5px 15px #a0a0a0;     
+}
