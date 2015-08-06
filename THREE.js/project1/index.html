@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="../js/three.min.js"></script>
+                <!-- i need projector.js for selcting and linking -->
+                <script src="../js/Projector.js"></script>
+               
+		<script>   
+
+
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+                        
+                        // i have to creat the objects array , for linking and selecting
+                        var objects = [];
+                        projector = new THREE.Projector();
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+                        
+                        
+			// LIGHTS
+
+			var ambient = new THREE.AmbientLight( 0x020202 );
+			scene.add( ambient );
+
+			directionalLight = new THREE.DirectionalLight( 0xffffff );
+			directionalLight.position.set( 1, 1, 0.5 ).normalize();
+			scene.add( directionalLight );
+
+			pointLight = new THREE.PointLight( 0xffaa00 );
+			scene.add( pointLight );
+                        
+                       cene.add(skybox);
+                        
+                        
+                        
+                      
+                     
+
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+                        
+                        var crateTxr = THREE.ImageUtils.loadTexture( 'textures/crate.gif' );
+                        var material = new THREE.MeshBasicMaterial( { map: crateTxr } );
+			// var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+             
+			var cube = new THREE.Mesh( geometry, material );
+                        // very important :    anyObject.userData{ URL: "-----"};
+                        cube.userData = {
+                            URL: "http://yahoo.com"
+                        };
+                        
+			scene.add( cube );
+                        objects.push(cube);
+                        
+                        
+                        
+                        
+			var geometry = new THREE.SphereGeometry( 1, 32, 16 );
+			var material2 = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+             
+			var sphere = new THREE.Mesh( geometry, material2 );
+                        // very important :    anyObject.userData{ URL: "-----"};
+                        sphere.userData = {
+                            URL: "http://google.com"
+                        };
+                        
+                    
+                        
+                        sphere.position.x = 3;
+			scene.add( sphere );
+            
+                        objects.push(sphere);
+
+			camera.position.z = 5;
+                        
+                        
+                        
+                      document.addEventListener('mousedown', onDocumentMouseDown, false);
+                        
+                      function onDocumentMouseDown(event) {
+                          event.preventDefault();
+                          var vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 -
+                              1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
+                          projector.unprojectVector(vector, camera);
+                          var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+                          var intersects = raycaster.intersectObjects(objects);
+                          if (intersects.length > 0) {
+                              window.open(intersects[0].object.userData.URL);
+                          }
+                  }
+                        
+                  
+                        
+                        
+
+			var render = function () {
+				requestAnimationFrame( render );
+
+				cube.rotation.x += 0.1;
+				cube.rotation.y += 0.1;
+
+				renderer.render(scene, camera);
+			};
+
+			render();
+		</script>
+	</body>
+</html>
